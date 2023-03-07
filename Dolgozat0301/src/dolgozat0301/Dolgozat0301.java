@@ -16,10 +16,18 @@ public class Dolgozat0301 {
      */
     public static void main(String[] args) {
     int eredmeny = 0;
+    int[] place;
     int[][] matrix = new int[4][4];
+    
     RandomSzamok(matrix);
     MaxAndMin(matrix);
-    Primszam(matrix);
+    if (vanPrime(matrix)) {
+        System.out.println("A mátrixban van prímszám");
+    } else {
+        System.out.println("A mátrixban nincs prímszám");
+    }
+    place = elsoPrim(matrix);
+    System.out.println("A(z) első prímszám a(z) " + (place[0]+1) + ". sor"+ (place[1]+1));
     }
     
     public static void RandomSzamok(int[][] matrix) {
@@ -27,6 +35,18 @@ public class Dolgozat0301 {
     for( int i = 0; i < matrix.length; i++ ) {
         for( int j = 0; j < matrix[i].length; j++ ) {
             matrix[i][j] = (int)(Math.random()*21)+10;
+            System.out.print(matrix[i][j]+" ");
+        }
+        System.out.println();
+    }
+    System.out.println("---------------------------------------------------------");
+
+    }
+    
+    
+    public static void printMatrix(int[][] matrix) {
+    for( int i = 0; i < matrix.length; i++ ) {
+        for( int j = 0; j < matrix[i].length; j++ ) {
             System.out.print(matrix[i][j]+" ");
         }
         System.out.println();
@@ -60,13 +80,39 @@ public class Dolgozat0301 {
     
 
     
-     public static void Primszam(int[][] matrix) {
-         for (int i  = 0; i < matrix.length; i++) {
-             int szam = 0;
+     public static boolean Primszam(int number) {
+         for (int i  = 2; i < number; i++) {
+             if (number % i == 0) {
+                return false;
              }
         }
+        return true;
      }
-    
+     
+     public static boolean vanPrime(int[][] matrix) {
+         for (int i = 0; i < matrix.length; i++) {
+             for (int j = 0; j < matrix[0].length; j++) {
+                 if (Primszam(matrix[i][j])) {
+                     return true;
+                 }
+             }
+         }
+         return false;
+     }
+        
+    public static int[] elsoPrim(int[][] matrix) {
+        int[] result = new int[2];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                if(Primszam(matrix[i][j])) {
+                    result[0] = i;
+                    result[1] = j;
+                    return result;
+                }
+            }
+        }
+        return null;
+    }
     
     
 
