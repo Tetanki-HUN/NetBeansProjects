@@ -19,7 +19,7 @@ public class Autok {
     public static void main(String[] args) {
         RandomAccessFile raf;
         String sor;
-        String autok = ("cars.txt", "r");
+        String autok = ("cars.txt");
         File myObj = new File("filename.txt");
         
         try {
