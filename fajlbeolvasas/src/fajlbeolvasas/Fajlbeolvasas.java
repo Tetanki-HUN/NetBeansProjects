@@ -22,14 +22,14 @@ public class Fajlbeolvasas {
         
         try {
             raf = new RandomAccessFile("nevek.txt","r");
-            int db = 0;                     //Számlálót indítok
-            sor = raf.readLine();          //első sort beolvasom
+            int db = 0;                     
+            sor = raf.readLine();          
             
-            while( sor != null ) {       //Addig fusson, amíg a sor nem null
-                                        //System.out.println(new String(sor.getBytes("ISO-88591"), "UTF-8"));
-                nevek[db] = sor;       //A neveket tartalmazó tömbbe teszi a kiolvasott adatot
-                db++;                 //Számláló növelése (a while NEM növeli)
-                sor = raf.readLine();//Beolvasom a következő sort
+            while( sor != null ) {       
+                System.out.println(new String(sor.getBytes("ISO-88591"), "UTF-8"));
+                nevek[db] = sor;      
+                db++;             
+                sor = raf.readLine();
             }
             
             raf.close();
@@ -41,6 +41,15 @@ public class Fajlbeolvasas {
             System.out.print(nevek[i] + " ");
         }
     }
+    
+    public static int[] feladat1(Arraylist<String> userInput)
+            int hoszabb = 0;
+            int i = 0;
+            int milyenhosszu = 0;
+            
+            for (String mondas : userInput) {
+
+}
     
 }
 
