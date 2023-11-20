@@ -21,9 +21,9 @@ public class Liftes20231016 {
     public static void main(String[] args) {
         RandomAccessFile raf;
         String sor;
-        String[] csapatok = null;
+        Integer[] csapatok = null;
         
-        ArrayList<Igeny> jeloltek = new ArrayList<>();
+        ArrayList<Integer> jeloltek = new ArrayList<Integer>();
         
         try {
             raf = new RandomAccessFile("igeny.txt","r");
@@ -39,7 +39,7 @@ public class Liftes20231016 {
                 sor = raf.readLine();
             }
             
-            raf.close();
+            raf.close();      
         } catch( IOException e ) {
             System.err.println("HIBA");
         }

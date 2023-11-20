@@ -17,7 +17,7 @@ public class Csapatsz {
     private int celSzint;
 
  
-    public Csapatsz(int ora, int perc, int masodperc, int sorszam, int induloSzint, int celSzint) {
+    public int Csapatsz(int ora, int perc, int masodperc, int sorszam, int induloSzint, int celSzint) {
         this.ora = ora;
         this.perc = perc;
         this.masodperc = masodperc;
