@@ -27,7 +27,21 @@ public class Godrok20231120 {
         int tavolsag = sc.nextInt();
         int tavolsagdb = 0;
         
-        if (tavolsag > line)
+        try (BufferedReader br = new BufferedReader(new FileReader("melyseg.txt"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                int number = Integer.parseInt(line.trim());
+                if (number > tavolsag) {
+                    tavolsagdb++;
+                }
+            }
+            System.out.println("A megadott távolságot meghaladó számok száma: " + tavolsagdb);
+        } catch (IOException | NumberFormatException e) {
+            System.err.println("Hiba: " + e.getMessage());
+        }
+        
+        
+        
     }
 
 }
