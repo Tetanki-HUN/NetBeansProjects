@@ -27,7 +27,7 @@ public class OlaszTancs20231016 {
             String fiuTanc = " ";
             
             while( fiuTanc != null ) {
-                String tanc = raf.readLine();
+                Integer.parseInt hour = raf.readLine();
                 String lanyTancs = raf.readLine();
                 fiuTanc = raf.readLine();
                 String lanyTanc = null;

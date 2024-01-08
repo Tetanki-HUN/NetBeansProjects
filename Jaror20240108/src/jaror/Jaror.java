@@ -6,6 +6,7 @@ package jaror;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,21 +18,24 @@ public class Jaror {
 
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
-    public static void main(String[] args) {
-       ArrayList<Integer> numbers = new ArrayList<>();
+    public static void main(String[] args) throws IOException {
+        ArrayList<JarorClass> Meresek = new ArrayList<>();
 
-        try (Scanner fileScanner = new Scanner(new FileReader("jarmu.txt"))) {
-            while (fileScanner.hasNextInt()) {
-                int number = fileScanner.nextInt();
-                numbers.add(number);
+        try (RandomAccessFile raf = new RandomAccessFile("jarmu.txt", "rw")) {
+            String sor = raf.readLine();
+            while (sor != null) {
+                JarorClass egyMeres = new JarorClass(sor.split(" "), 08, 46, 51, "FD-2717");
+                Meresek.add(egyMeres);
+                sor = raf.readLine();
+                
             }
-            System.out.println("1. feladat");
-            System.out.println(numbers.size());
-            System.out.println("--------------------------------------------");
-        } catch (IOException e) {
-            System.err.println("Hiba: " + e.getMessage());
+        } catch( IOException e ) {
+            System.err.println("HIBA");
         }
-    }
-    
+   
+        
+       
+    }  
 }
