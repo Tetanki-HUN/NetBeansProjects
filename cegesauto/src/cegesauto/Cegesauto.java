@@ -13,6 +13,15 @@ public class Cegesauto {
     String rendszam, azonosito;
     boolean kibe;
 
+    public int getPerc() {
+        return perc;
+    }
+
+    public void setPerc(int perc) {
+        this.perc = perc;
+    }
+
+    
     public int getNap() {
         return nap;
     }
@@ -29,13 +38,6 @@ public class Cegesauto {
         this.ora = ora;
     }
 
-    public int getPerc() {
-        return perc;
-    }
-
-    public void setPerc(int perc) {
-        this.perc = perc;
-    }
 
     public int getKm() {
         return km;
@@ -81,7 +83,7 @@ public class Cegesauto {
 
     @Override
     public String toString() {
-        return "Cegesauto{" + "nap=" + nap + ", ora=" + ora + ", perc=" + perc + ", km=" + km + ", rendszam=" + rendszam + ", azonosito=" + azonosito + ", kibe=" + kibe + '}';
+        return "Cegesauto{" + "nap=" + nap + ", ora=" + ora + ", km=" + km + ", rendszam=" + rendszam + ", azonosito=" + azonosito + ", kibe=" + kibe + '}';
     }
     
     

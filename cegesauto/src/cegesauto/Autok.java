@@ -18,13 +18,17 @@ public class Autok {
        ArrayList<Integer> numbers = new ArrayList<>();
 
         try (Scanner fileScanner = new Scanner(new FileReader("autok.txt"))) {
-            while (fileScanner.hasNextInt()) {
-                int number = fileScanner.nextInt();
-                numbers.add(number);
+            while (fileScanner.hasNextLine()) {
+                String[] data = Scanner.nextLine().split("\\s+");
+                Cegesauto entry = new Cegesauto(
+                        Integer.parseInt(data[0]),
+                        Integer.parseInt(data[1]),
+                        Integer.parseInt(data[2]),    
+                        data[3],
+                        data[4],
+                        Integer.parseInt(data[5]),
+                        Boolean.parseBoolean(data[6 ]));
             }
-            System.out.println("1. feladat");
-            System.out.println(numbers.size());
-            System.out.println("--------------------------------------------");
         } catch (IOException e) {
             System.err.println("Hiba: " + e.getMessage());
         }
