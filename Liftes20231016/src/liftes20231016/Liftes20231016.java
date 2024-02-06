@@ -9,6 +9,9 @@ package liftes20231016;
  *
  * @author MSI
  */
+import java.util.ArrayList;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.*;
 public class Liftes20231016 {
 
@@ -18,12 +21,16 @@ public class Liftes20231016 {
     public static void main(String[] args) {
         RandomAccessFile raf;
         String sor;
-        String[] csapatok = new String[];
+        Integer[] csapatok = null;
+        
+        ArrayList<Integer> jeloltek = new ArrayList<Integer>();
         
         try {
             raf = new RandomAccessFile("igeny.txt","r");
             int db = 0;                     
-            sor = raf.readLine();          
+            sor = raf.readLine();
+            sor = raf.readLine();  
+            sor = raf.readLine();  
             
             while( sor != null ) {       
                 System.out.println(new String(sor.getBytes("ISO-88591"), "UTF-8"));
@@ -32,7 +39,7 @@ public class Liftes20231016 {
                 sor = raf.readLine();
             }
             
-            raf.close();
+            raf.close();      
         } catch( IOException e ) {
             System.err.println("HIBA");
         }
